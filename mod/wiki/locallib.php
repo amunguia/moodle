@@ -665,7 +665,7 @@ function wiki_parser_link($link, $options = null) {
     } else {
         $swid = $options['swid'];
 
-        if ($page = wiki_get_page_by_title($swid, $link)) {
+        if ($page = wiki_get_page_by_title($swid, strip_tags($link))) {
             $parsedlink = array('content' => $link, 'url' => $CFG->wwwroot . '/mod/wiki/view.php?pageid=' . $page->id, 'new' => false, 'link_info' => array('link' => $link, 'pageid' => $page->id, 'new' => false));
 
             $version = wiki_get_current_version($page->id);
